@@ -6,6 +6,7 @@
 
 module.exports = {
   siteMetadata: {
+    //This is what gets displayed for graphql
     title: `Pandas Eating Lots`,
   },
   plugins: [

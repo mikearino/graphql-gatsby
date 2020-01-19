@@ -32,6 +32,7 @@ export default ({ children }) => {
             font-style: normal;
           `}
         >
+          {/* graphql in layout */}
           {data.site.siteMetadata.title}
         </h3>
       </Link>
