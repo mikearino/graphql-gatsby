@@ -17,6 +17,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    //transformer plugin makes useable data for site from raw
     `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,
     {
