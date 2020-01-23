@@ -6,10 +6,28 @@
 
 module.exports = {
   siteMetadata: {
-    //This is what gets displayed for graphql
+    //This is what gets displayed for graphql.
     title: `Pandas Eating Lots`,
+    //For SEO optimization.
+    description: `A simple description about pandas eating lots...`,
+    author: `gatsbyjs`,
   },
   plugins: [
+    {
+      //For icons and installing onto a local computer.
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `GatsbyJS`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#6b37bf`,
+        theme_color: `#6b37bf`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: `standalone`,
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,5 +44,9 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    //For serving offline
+    `gatsby-plugin-offline`,
+    //For SEO.
+    `gatsby-plugin-react-helmet`,
   ],
 }
