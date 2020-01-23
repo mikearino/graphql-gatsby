@@ -4,6 +4,7 @@ import { css } from "@emotion/core"
 import { rhythm } from "../utils/typography"
 import Layout from "../components/layout"
 
+// Pulling in data from graphql
 export default ({ data }) => {
   console.log(data)
   return (
@@ -17,7 +18,9 @@ export default ({ data }) => {
         >
           Amazing Pandas Eating Things
         </h1>
+        {/* Pulling in data from graphql and converting it to useable format */}
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+        {/* Mapping through the data with each edge  */}
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <h3
@@ -25,15 +28,17 @@ export default ({ data }) => {
                 margin-bottom: ${rhythm(1 / 4)};
               `}
             >
+              {/* Adding in the title  */}
               {node.frontmatter.title}{" "}
               <span
                 css={css`
                   color: #bbb;
                 `}
               >
-                — {node.frontmatter.date}
+                {/* Add in the date  */}— {node.frontmatter.date}
               </span>
             </h3>
+            {/* Add in the excerpt  */}
             <p>{node.excerpt}</p>
           </div>
         ))}
@@ -41,7 +46,7 @@ export default ({ data }) => {
     </Layout>
   )
 }
-
+//Using markdown remark to grab the markdown files
 export const query = graphql`
   query {
     allMarkdownRemark {
